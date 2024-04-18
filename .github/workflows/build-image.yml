@@ -23,7 +23,7 @@ jobs:
         uses: gradle/gradle-build-action@v3
 
       - name: Build
-        run: ./gradlew bootBuildImage
+        run: ./gradlew bootBuildImage --imageName=${{ github.repository }}
       - name: Login to GitHub Container Registry
         run: echo ${{ secrets.GITHUB_TOKEN }} | docker login ghcr.io -u ${{ github.repository_owner }} --password-stdin
       - name: Tag image
